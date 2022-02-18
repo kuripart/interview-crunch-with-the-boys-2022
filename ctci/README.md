@@ -1,5 +1,5 @@
 # Tackle CTCI Questions
 
-## Nithin - 1.1,1.4,1.7
-## Parth - 1.2,1.5,1.8
-## Adi - 1.3,1.6,1.9
+## Nithin - 2.1,2.4,2.7
+## Parth - 2.2,2.5,2.8
+## Adi - 2.3,2.6
