@@ -7,13 +7,8 @@ def solve(str1, str2):
     str1_len = len(str1)
 
     # base cases
-    if str2_len == str1_len:
-        pass
-    else:
-        str2_len = len(str2)
-        str1_len = len(str1)
-        if abs(str2_len - str1_len) >= 2:
-            return False
+    if abs(str2_len - str1_len) >= 2:
+        return False
 
     cnt1 = 0
     cnt2 = 0
@@ -46,11 +41,13 @@ import unittest
 class TestSum(unittest.TestCase):
     def test_solve(self):
         self.assertEqual(solve("pale", "ple"), True)
+        self.assertEqual(solve("pale", "plk"), False)
         self.assertEqual(solve("pales", "pale"), True)
         self.assertEqual(solve("pale", "bale"), True)
         self.assertEqual(solve("pale", "bake"), False)
         self.assertEqual(solve("pale", "pale"), True)
         self.assertEqual(solve("pale", "pl"), False)
+        self.assertEqual(solve("palas", "pale"), False)
 
 if __name__ == '__main__':
     unittest.main()
