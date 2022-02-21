@@ -8,42 +8,48 @@ def print_ll(root):
     '''
     print linked list please
     '''
+    ans = ""
     temp = root
     while temp != None:
-        print(temp.val)
+        ans += str(temp.val)
         temp = temp.next
+    return ans
 
 
 
-def solve(root):
-    # fast and slow pointer method
-    slow = root
-    fast = root
+def solve(root1, root2):
     
-    while fast.next != None:
-        slow = slow.next
-        fast = fast.next
+    sum = 0 
+    carry = 0
+    ans = None
+    temp = None
 
-        if fast == None:
-            return -1 
-        if fast.next == None:
-            return -1
+    while root1 != None or root2 != None:
+        sum = carry
+        if root1 != None:
+            sum += root1.val
+            root1 = root1.next
+
+        if root2 != None:
+            sum += root2.val
+            root2 = root2.next
+
+        carry = sum // 10
+        sum = sum % 10
+        
+        sumnode = Node(sum, None)
+        
+        if temp == None:
+            temp = ans = sumnode
         else:
-            fast = fast.next
+            temp.next = sumnode
+            temp = temp.next
 
-        if fast.val == slow.val:
-            break
+    if carry:
+        carrymnode = Node(carry, None)
+        temp.next = carrymnode
 
-    if fast.next == None:
-        return -1
-
-
-    temp = root
-    while temp.val != slow.val:
-        temp = temp.next
-        slow = slow.next
-
-    return slow.val
+    return print_ll(ans)
 
 
 node1 = Node(1, None)
@@ -56,7 +62,6 @@ node1.next = node2
 node2.next = node3
 node3.next = node4
 node4.next = node5
-node5.next = node3 # cycled
 
 
 node6 = Node(6, None)
@@ -69,7 +74,7 @@ node10 = Node(10, None)
 node6.next = node7
 node7.next = node8
 node8.next = node9
-node9.next = node10
+# node9.next = node10
 
 
 node11 = Node(11, None)
@@ -82,15 +87,14 @@ node12.next = node13
 node13.next = node14
 
 # Time: O(n)
-# Space: O(1)
+# Space: O(n)
 
 import unittest
 
 class TestSum(unittest.TestCase):
     def test_solve(self):
-        self.assertEqual(solve(node1), 3)
-        self.assertEqual(solve(node6), -1)
-        self.assertEqual(solve(node11), -1)
+        self.assertEqual(solve(node1, node6), '79146')
+        self.assertEqual(solve(node1, node1), '246801')
 
 if __name__ == '__main__':
     unittest.main()
