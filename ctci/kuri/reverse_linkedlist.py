@@ -14,7 +14,6 @@ def print_ll(root):
         temp = temp.next
 
 
-
 def reverse(root):
     prev = None
     curr = root
@@ -24,9 +23,7 @@ def reverse(root):
         prev = curr
         curr = temp
         
-
     print_ll(prev)
-
 
 
 node1 = Node(1, None)

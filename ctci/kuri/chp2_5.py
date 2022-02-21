@@ -16,7 +16,6 @@ def print_ll(root):
     return ans
 
 
-
 def solve(root1, root2):
     
     sum = 0 
@@ -86,7 +85,7 @@ node11.next = node12
 node12.next = node13
 node13.next = node14
 
-# Time: O(n)
+# Time: O(size of both linked lists)
 # Space: O(n)
 
 import unittest
