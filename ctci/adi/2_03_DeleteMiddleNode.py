@@ -44,13 +44,6 @@ def delete_middle_node(item_to_delete):
     item_to_delete.val = next_item.val
     item_to_delete.next = next_item.next
 
-
-node1 = Node(1, None)
-node2 = Node(2, None)
-node3 = Node(3, None)
-node4 = Node(4, None)
-node5 = Node(5, None)
-
 def create_ll():
     global node1, node2, node3, node4, node5
     node1 = Node(1, None)
